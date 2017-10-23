@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Saved Password Editor, extension for Gecko applications
-    Copyright (C) 2015  Daniel Dawson <danielcdawson@gmail.com>
+    Classic Password Editor, extension for Gecko applications
+    Copyright (C) 2017  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,35 +18,35 @@
 -->
 
 <!DOCTYPE overlay SYSTEM
-          "chrome://savedpasswordeditor/locale/browserOverlay.dtd">
+          "chrome://classicpasswordeditor/locale/browserOverlay.dtd">
 
 <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <script type="application/javascript" src="contextmenuOverlay.js"/>
 
   <menupopup id="contentAreaContextMenu">
-    <menuseparator id="savedpasswordeditor-ctxmenuseparator"
+    <menuseparator id="classicpasswordeditor-ctxmenuseparator"
                    insertbefore="inspect-separator"/>
-    <menuitem id="savedpasswordeditor-savelogininfo"
+    <menuitem id="classicpasswordeditor-savelogininfo"
               insertbefore="inspect-separator"
               label="&ctx_savelogininfo.label;"
               accesskey="&ctx_savelogininfo.accesskey;"
               tooltiptext="&ctx_savelogininfo.tooltip;"
-              oncommand="SavedPasswordEditor.saveLoginInfo(window);"/>
-    <menuitem id="savedpasswordeditor-editlogininfo"
+              oncommand="ClassicPasswordEditor.saveLoginInfo(window);"/>
+    <menuitem id="classicpasswordeditor-editlogininfo"
               insertbefore="inspect-separator"
               label="&ctx_editlogininfo.label;"
               accesskey="&ctx_editlogininfo.accesskey;"
               tooltiptext="&ctx_editlogininfo.tooltip;"
-              oncommand="SavedPasswordEditor.editLoginInfo(window);"/>
-    <menuitem id="savedpasswordeditor-deletelogininfo"
+              oncommand="ClassicPasswordEditor.editLoginInfo(window);"/>
+    <menuitem id="classicpasswordeditor-deletelogininfo"
               insertbefore="inspect-separator"
               label="&ctx_deletelogininfo.label;"
               accesskey="&ctx_deletelogininfo.accesskey;"
               tooltiptext="&ctx_deletelogininfo.tooltip;"
-              oncommand="SavedPasswordEditor.deleteLoginInfo(window);"/>
+              oncommand="ClassicPasswordEditor.deleteLoginInfo(window);"/>
   </menupopup>
 
   <popupset id="mainPopupSet">
-    <menupopup id="savedpasswordeditor-disambig-popup"/>
+    <menupopup id="classicpasswordeditor-disambig-popup"/>
   </popupset>
 </overlay>

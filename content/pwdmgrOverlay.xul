@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Saved Password Editor, extension for Gecko applications
-    Copyright (C) 2015  Daniel Dawson <danielcdawson@gmail.com>
+    Classic Password Editor, extension for Gecko applications
+    Copyright (C) 2017  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,17 +18,17 @@
 -->
 
 <!DOCTYPE overlay SYSTEM
-          "chrome://savedpasswordeditor/locale/pwdmgrOverlay.dtd">
-<?xml-stylesheet href="chrome://savedpasswordeditor/skin/pwdmgrOverlay.css"
+          "chrome://classicpasswordeditor/locale/pwdmgrOverlay.dtd">
+<?xml-stylesheet href="chrome://classicpasswordeditor/skin/pwdmgrOverlay.css"
                  type="text/css"?>
 
-<overlay id="savedpasswordeditorOverlay"
+<overlay id="classicpasswordeditorOverlay"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <stringbundleset>
-    <stringbundle id="savedpwdedit-gen-stringbundle"
-                  src="chrome://savedpasswordeditor/locale/spe.properties"/>
-    <stringbundle id="savedpwdedit-overlay-stringbundle"
-      src="chrome://savedpasswordeditor/locale/pwdmgrOverlay.properties"/>
+    <stringbundle id="classicpwdedit-gen-stringbundle"
+                  src="chrome://classicpasswordeditor/locale/cpe.properties"/>
+    <stringbundle id="classicpwdedit-overlay-stringbundle"
+      src="chrome://classicpasswordeditor/locale/pwdmgrOverlay.properties"/>
   </stringbundleset>
 
   <script type="text/javascript" src="pwdmgrOverlay.js"/>
@@ -36,16 +36,16 @@
   <commandset>
     <command id="edit_signon"
              label="&editentry.label;" accesskey="&editentry.accesskey;"
-             oncommand="spEditor.editSignon();" disabled="true"/>
+             oncommand="cpEditor.editSignon();" disabled="true"/>
     <command id="clone_signon"
              label="&cloneentry.label;" accesskey="&cloneentry.accesskey;"
-             oncommand="spEditor.cloneSignon();" disabled="true"/>
+             oncommand="cpEditor.cloneSignon();" disabled="true"/>
     <command id="new_signon"
              label="&newentry.label;" accesskey="&newentry.accesskey;"
-             oncommand="spEditor.newSignon();"/>
+             oncommand="cpEditor.newSignon();"/>
     <command id="visit_site"
              label="&visitsite.label;" accesskey="&visitsite.accesskey;"
-             oncommand="spEditor.visitSite();" disabled="true"/>
+             oncommand="cpEditor.visitSite();" disabled="true"/>
   </commandset>
 
   <keyset>
@@ -70,18 +70,18 @@
   <tree id="signonsTree" context="signonsTreeContextMenu"/>
 
   <hbox id="SignonViewerButtons">
-    <button id="speMenuBtn" type="menu-button" command="new_signon" icon="add"
+    <button id="cpeMenuBtn" type="menu-button" command="new_signon" icon="add"
             insertafter="removeAllSignons">
-      <menupopup id="speMenuBtnPopup">
-        <menuitem id="speMenuBtn_editSignon" label="&editentry.label;"
+      <menupopup id="cpeMenuBtnPopup">
+        <menuitem id="cpeMenuBtn_editSignon" label="&editentry.label;"
                   accesskey="&editentry.accesskey;" disabled="true"
-                  oncommand="spEditor.menuBtnSel(event, this);"/>
-        <menuitem id="speMenuBtn_cloneSignon" label="&cloneentry.label;"
+                  oncommand="cpEditor.menuBtnSel(event, this);"/>
+        <menuitem id="cpeMenuBtn_cloneSignon" label="&cloneentry.label;"
                   accesskey="&cloneentry.accesskey;" disabled="true"
-                  oncommand="spEditor.menuBtnSel(event, this);"/>
-        <menuitem id="speMenuBtn_newSignon" label="&newentry.label;"
+                  oncommand="cpEditor.menuBtnSel(event, this);"/>
+        <menuitem id="cpeMenuBtn_newSignon" label="&newentry.label;"
                   accesskey="&newentry.accesskey;"
-                  oncommand="spEditor.menuBtnSel(event, this);"/>
+                  oncommand="cpEditor.menuBtnSel(event, this);"/>
       </menupopup>
     </button>
   </hbox>

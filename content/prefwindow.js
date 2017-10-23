@@ -1,6 +1,6 @@
 /*
-    Saved Password Editor, extension for Gecko applications
-    Copyright (C) 2016  Daniel Dawson <danielcdawson@gmail.com>
+    Classic Password Editor, extension for Gecko applications
+    Copyright (C) 2017  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@ const Cc = Components.classes, Ci = Components.interfaces,
   Cu = Components.utils;
 Cu.import("resource://gre/modules/Services.jsm");
 
-var prefs = Services.prefs.getBranch("extensions.savedpasswordeditor.");
+var prefs = Services.prefs.getBranch("extensions.classicpasswordeditor.");
 
 const el = aEl => document.getElementById(aEl);
 

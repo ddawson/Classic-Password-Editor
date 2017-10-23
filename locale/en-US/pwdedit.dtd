@@ -1,4 +1,4 @@
-<!ENTITY savedpasswordeditor.title "Saved Password Editor">
+<!ENTITY classicpasswordeditor.title "Classic Password Editor">
 <!ENTITY signontype.label "Type">
 <!ENTITY type_form.label "Web form">
 <!ENTITY type_form.accesskey "W">

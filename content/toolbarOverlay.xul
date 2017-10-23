@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Saved Password Editor, extension for Gecko applications
-    Copyright (C) 2014  Daniel Dawson <danielcdawson@gmail.com>
+    Classic Password Editor, extension for Gecko applications
+    Copyright (C) 2017  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,38 +18,38 @@
 -->
 
 <!DOCTYPE overlay SYSTEM
-          "chrome://savedpasswordeditor/locale/browserOverlay.dtd">
+          "chrome://classicpasswordeditor/locale/browserOverlay.dtd">
 
 <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <script type="application/javascript" src="toolbarOverlay.js"/>
 
   <toolbarpalette id="BrowserToolbarPalette">
-    <toolbarbutton id="savedpasswordeditor-button"
-                   class="toolbarbutton-1 chromeclass-toolbar-additional"
+    <toolbarbutton id="classicpasswordeditor-button"
+                   class="toolbarbutton-1 chromeclass-toolbar-additional ac-type-icon"
                    persist="class" removable="true"
                    label="&savedpasswords.label;"
                    tooltiptext="&savedpasswords.tooltip;"
-                   oncommand="SavedPasswordEditor.openSavedPasswords();"/>
+                   oncommand="ClassicPasswordEditor.openSavedPasswords();"/>
   </toolbarpalette>
   <toolbarpalette id="MailToolbarPalette">
-    <toolbarbutton id="savedpasswordeditor-button"
-                   class="toolbarbutton-1 chromeclass-toolbar-additional"
+    <toolbarbutton id="classicpasswordeditor-button"
+                   class="toolbarbutton-1 chromeclass-toolbar-additional ac-type-icon"
                    label="&savedpasswords.label;"
                    tooltiptext="&savedpasswords.tooltip;"
-                   oncommand="SavedPasswordEditor.openSavedPasswords();"/>
+                   oncommand="ClassicPasswordEditor.openSavedPasswords();"/>
   </toolbarpalette>
   <toolbarpalette id="MsgComposeToolbarPalette">
-    <toolbarbutton id="savedpasswordeditor-button"
-                   class="toolbarbutton-1 chromeclass-toolbar-additional"
+    <toolbarbutton id="classicpasswordeditor-button"
+                   class="toolbarbutton-1 chromeclass-toolbar-additional ac-type-icon"
                    label="&savedpasswords.label;"
                    tooltiptext="&savedpasswords.tooltip;"
-                   oncommand="SavedPasswordEditor.openSavedPasswords();"/>
+                   oncommand="ClassicPasswordEditor.openSavedPasswords();"/>
   </toolbarpalette>
   <toolbarpalette id="calendarToolbarPalette">
-    <toolbarbutton id="savedpasswordeditor-button"
-                   class="cal-toolbarbutton-1 chromeclass-toolbar-additional"
+    <toolbarbutton id="classicpasswordeditor-button"
+                   class="cal-toolbarbutton-1 chromeclass-toolbar-additional ac-type-icon"
                    label="&savedpasswords.label;"
                    tooltiptext="&savedpasswords.tooltip;"
-                   oncommand="SavedPasswordEditor.openSavedPasswords();"/>
+                   oncommand="ClassicPasswordEditor.openSavedPasswords();"/>
   </toolbarpalette>
 </overlay>

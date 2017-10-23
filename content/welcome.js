@@ -1,6 +1,6 @@
 /*
-    Saved Password Editor, extension for Gecko applications
-    Copyright (C) 2016  Daniel Dawson <danielcdawson@gmail.com>
+    Classic Password Editor, extension for Gecko applications
+    Copyright (C) 2017  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -46,18 +46,18 @@ window.addEventListener(
     var el = name => document.getElementById(name);
 
     appId = Services.appinfo.ID;
-    var appName = "firefox";
+    var appName = "";
     switch (appId) {
     case THUNDERBIRD:
-      appName = "thunderbird";
+      appName = "/thunderbird";
       break;
     case SEAMONKEY:
-      appName = "seamonkey";
+      appName = "/seamonkey";
       break;
     }
     el("addonlink").setAttribute(
-      "href", "https://addons.mozilla.org/" + appName
-              + "/addon/saved-password-editor/");
+      "href",
+      `https://addons.mozilla.org${appName}/addon/classic-password-editor/`);
     el("appname").textContent = Services.appinfo.name;
     window.removeEventListener("load", loadHandler, false);
   },

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Saved Password Editor, extension for Gecko applications
-    Copyright (C) 2015  Daniel Dawson <danielcdawson@gmail.com>
+    Classic Password Editor, extension for Gecko applications
+    Copyright (C) 2017  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,43 +18,43 @@
 -->
 
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<?xml-stylesheet href="chrome://savedpasswordeditor/skin/prefwindow.css"
+<?xml-stylesheet href="chrome://classicpasswordeditor/skin/prefwindow.css"
   type="text/css"?>
 
 <!DOCTYPE prefwindow SYSTEM
-          "chrome://savedpasswordeditor/locale/prefwindow.dtd">
+          "chrome://classicpasswordeditor/locale/prefwindow.dtd">
 
 <prefwindow
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-    id="savedpasswordeditor-prefwindow" title="&prefwindow.title;">
+    id="classicpasswordeditor-prefwindow" title="&prefwindow.title;">
   <prefpane>
     <preferences>
       <preference id="pref-display-menuitem"
-                  name="extensions.savedpasswordeditor.display_menuitem"
+                  name="extensions.classicpasswordeditor.display_menuitem"
                   type="bool"/>
       <preference id="pref-rename-menuitem-to"
-                  name="extensions.savedpasswordeditor.rename_menuitem_to"
+                  name="extensions.classicpasswordeditor.rename_menuitem_to"
                   type="string"/>
       <preference id="pref-savedpasswords-shortcut-modifiers"
-                  name="extensions.savedpasswordeditor.openspkeymodifiers"
+                  name="extensions.classicpasswordeditor.openspkeymodifiers"
                   type="string"/>
       <preference id="pref-savedpasswords-shortcut-key"
-                  name="extensions.savedpasswordeditor.openspkey"
+                  name="extensions.classicpasswordeditor.openspkey"
                   type="string"/>
       <preference id="pref-confirm-ctxmenu-delete"
-                  name="extensions.savedpasswordeditor.confirm_ctxmenu_delete"
+                  name="extensions.classicpasswordeditor.confirm_ctxmenu_delete"
                   type="bool"/>
       <preference id="pref-preselect-current-site"
-                  name="extensions.savedpasswordeditor.preselect_current_site"
+                  name="extensions.classicpasswordeditor.preselect_current_site"
                   type="bool"/>
       <preference id="pref-alwaysshowpasswords"
-                  name="extensions.savedpasswordeditor.always_show_passwords"
+                  name="extensions.classicpasswordeditor.always_show_passwords"
                   type="bool"/>
       <preference id="pref-forcepromptformasterpassword"
-          name="extensions.savedpasswordeditor.force_prompt_for_masterPassword"
+          name="extensions.classicpasswordeditor.force_prompt_for_masterPassword"
                   type="bool"/>
       <preference id="pref-showpassword"
-                  name="extensions.savedpasswordeditor.showpassword"
+                  name="extensions.classicpasswordeditor.showpassword"
                   type="int"/>
     </preferences>
     <groupbox>

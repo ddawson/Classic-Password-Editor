@@ -1,6 +1,6 @@
 /*
-    Saved Password Editor, extension for Gecko applications
-    Copyright (C) 2016  Daniel Dawson <danielcdawson@gmail.com>
+    Classic Password Editor, extension for Gecko applications
+    Copyright (C) 2017  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -23,14 +23,14 @@
   let Cc = Components.classes, Ci = Components.interfaces;
   let prefsSvc = Cc["@mozilla.org/preferences-service;1"]
     .getService(Ci.nsIPrefService);
-  let prefs = prefsSvc.getBranch("extensions.savedpasswordeditor.");
+  let prefs = prefsSvc.getBranch("extensions.classicpasswordeditor.");
 
   let observe = function (aSubject, aTopic, aData) {
     if (aData.startsWith("opensp")) {
       let keyObj = document.getElementById(
-        "savedpasswordeditor-key-opensavedpasswords");
+        "classicpasswordeditor-key-opensavedpasswords");
       let miObj = document.getElementById(
-        "savedpasswordeditor-toolsmenuitem");
+        "classicpasswordeditor-toolsmenuitem");
       let key = prefs.getCharPref("openspkey");
       let keyMods = prefs.getCharPref("openspkeymodifiers");
 
@@ -70,8 +70,8 @@
         return;
 
       if (!shortcutModifiers.every(function (e) evt[e[0]] == e[1])) return;
-      document.getElementById("savedpasswordeditor-command-opensavedpasswords")
-        .doCommand();
+      document.getElementById(
+        "classicpasswordeditor-command-opensavedpasswords").doCommand();
     },
     false);
 
@@ -81,10 +81,10 @@
       const prefBranch =
         Components.classes["@mozilla.org/preferences-service;1"].
         getService(Components.interfaces.nsIPrefService).
-        getBranch("extensions.savedpasswordeditor.");
+        getBranch("extensions.classicpasswordeditor.");
 
       function menuitemDynamic (evt) {
-        var mi = document.getElementById("savedpasswordeditor-toolsmenuitem");
+        var mi = document.getElementById("classicpasswordeditor-toolsmenuitem");
         var renameTo =
           prefBranch.getComplexValue(
             "rename_menuitem_to",
@@ -112,7 +112,7 @@
       }
 
       function appmenuitemDynamic (evt) {
-        var mi = document.getElementById("savedpasswordeditor-appmenuitem");
+        var mi = document.getElementById("classicpasswordeditor-appmenuitem");
         var renameTo =
           prefBranch.getComplexValue(
             "rename_menuitem_to",

@@ -1,6 +1,6 @@
 /*
-    Saved Password Editor, extension for Gecko applications
-    Copyright (C) 2016  Daniel Dawson <danielcdawson@gmail.com>
+    Classic Password Editor, extension for Gecko applications
+    Copyright (C) 2017  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@ const Cc = Components.classes,
       Ci = Components.interfaces,
       prefs = Cc["@mozilla.org/preferences-service;1"].
               getService(Ci.nsIPrefService).
-              getBranch("extensions.savedpasswordeditor."),
+              getBranch("extensions.classicpasswordeditor."),
       THUNDERBIRD = "{3550f703-e582-4d05-9a08-453d09bdfdc6}",
       CONKEROR = "{a79fe89b-6662-4ff4-8e88-09950ad4dfde}";
 
@@ -239,7 +239,7 @@ function guessParameters () {
   var resultHandler = {
     receiveMessage ({ data: aLoginForms }) {
       browserMM.removeMessageListener(
-        "SavedPasswordEditor.loginformsresults", resultHandler);
+        "ClassicPasswordEditor:loginformsresults", resultHandler);
 
       if (aLoginForms.length == 0) {
         Cc["@mozilla.org/embedcomp/prompt-service;1"].
@@ -263,8 +263,8 @@ function guessParameters () {
   };
 
   browserMM.addMessageListener(
-    "SavedPasswordEditor:loginformsresults", resultHandler);
-  browserMM.sendAsyncMessage("SavedPasswordEditor:scanforloginforms");
+    "ClassicPasswordEditor:loginformsresults", resultHandler);
+  browserMM.sendAsyncMessage("ClassicPasswordEditor:scanforloginforms");
 }
 
 function _fillFromForm (aIdx) {

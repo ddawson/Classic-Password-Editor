@@ -1,6 +1,6 @@
 /*
-    Saved Password Editor, extension for Gecko applications
-    Copyright (C) 2011  Daniel Dawson <danielcdawson@gmail.com>
+    Classic Password Editor, extension for Gecko applications
+    Copyright (C) 2017  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -40,14 +40,18 @@ html[dir="RTL"] > body {
   padding-right: 96px;
 }
 
-h1:before {
+h1::before {
   margin-left: -80px;
   margin-right: 16px;
   float: left;
-  content: url("chrome://savedpasswordeditor/skin/key64.png");
+  content: " ";
+  background-image: url("chrome://classicpasswordeditor/skin/logo.svg");
+  background-size: 64px 64px;
+  width: 64px;
+  height: 64px;
 }
 
-html[dir="RTL"] h1:before {
+html[dir="RTL"] h1::before {
   margin-left: 16px;
   margin-right: -80px;
   float: right;

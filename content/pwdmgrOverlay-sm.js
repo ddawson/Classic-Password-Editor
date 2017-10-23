@@ -1,6 +1,6 @@
 /*
-    Saved Password Editor, extension for Gecko applications
-    Copyright (C) 2016  Daniel Dawson <danielcdawson@gmail.com>
+    Classic Password Editor, extension for Gecko applications
+    Copyright (C) 2017  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,10 +21,10 @@
 document.addEventListener(
   "DOMContentLoaded",
   function dclHandler (ev) {
-    spEditor.genStrBundle =
-      document.getElementById("savedpwdedit-gen-stringbundle");
-    spEditor.pmoStrBundle =
-      document.getElementById("savedpwdedit-overlay-stringbundle");
+    cpEditor.genStrBundle =
+      document.getElementById("classicpwdedit-gen-stringbundle");
+    cpEditor.pmoStrBundle =
+      document.getElementById("classicpwdedit-overlay-stringbundle");
     document.removeEventListener("DOMContentLoaded", dclHandler, false);
   },
   false);
@@ -33,7 +33,7 @@ window.addEventListener(
   "load",
   function _loadHandler () {
     var menuBtnAnon =
-      document.getAnonymousNodes(document.getElementById("speMenuBtn"));
+      document.getAnonymousNodes(document.getElementById("cpeMenuBtn"));
     var innerBtn = menuBtnAnon[1], dropMarker = menuBtnAnon[2];
     innerBtn.removeAttribute("class");
     dropMarker.removeAttribute("class");
@@ -51,60 +51,60 @@ document.getElementById("passwordsTree").addEventListener(
     if (selections.length > 0) {
       document.getElementById("edit_signon").removeAttribute("disabled");
       document.getElementById("visit_site").removeAttribute("disabled");
-      document.getElementById("speMenuBtn_editSignon").
+      document.getElementById("cpeMenuBtn_editSignon").
         removeAttribute("disabled");
-      if (!spEditor.userChangedMenuBtn) {
-        document.getElementById("speMenuBtn").command = "edit_signon";
-        document.getElementById("speMenuBtn").
+      if (!cpEditor.userChangedMenuBtn) {
+        document.getElementById("cpeMenuBtn").command = "edit_signon";
+        document.getElementById("cpeMenuBtn").
           setAttribute("icon", "properties");
       }
-    } else if (!spEditor.refreshing) {
-      document.getElementById("speMenuBtn").command = "new_signon";
-      document.getElementById("speMenuBtn").setAttribute("icon", "add");
+    } else if (!cpEditor.refreshing) {
+      document.getElementById("cpeMenuBtn").command = "new_signon";
+      document.getElementById("cpeMenuBtn").setAttribute("icon", "add");
       document.getElementById("edit_signon").setAttribute("disabled", "true");
       document.getElementById("visit_site").setAttribute("disabled", "true");
-      document.getElementById("speMenuBtn_editSignon").
+      document.getElementById("cpeMenuBtn_editSignon").
         setAttribute("disabled", "true");
-      spEditor.userChangedMenuBtn = false;
+      cpEditor.userChangedMenuBtn = false;
     }
 
     if (selections.length == 1) {
       document.getElementById("clone_signon").removeAttribute("disabled");
-      document.getElementById("speMenuBtn_cloneSignon").
+      document.getElementById("cpeMenuBtn_cloneSignon").
         removeAttribute("disabled");
-    } else if (!spEditor.refreshing) {
+    } else if (!cpEditor.refreshing) {
       document.getElementById("clone_signon").
         setAttribute("disabled", "true");
-      document.getElementById("speMenuBtn_cloneSignon").
+      document.getElementById("cpeMenuBtn_cloneSignon").
         setAttribute("disabled", "true");
     }
   },
   false);
 
-var spEditor = {
+var cpEditor = {
   prefs: Components.classes["@mozilla.org/preferences-service;1"].
          getService(Components.interfaces.nsIPrefService).
-         getBranch("extensions.savedpasswordeditor."),
+         getBranch("extensions.classicpasswordeditor."),
 
   userChangedMenuBtn: false,
   refreshing: false,
 
   menuBtnSel: function (ev, elem) {
-    var mb = document.getElementById("speMenuBtn");
+    var mb = document.getElementById("cpeMenuBtn");
     switch(elem.id) {
-    case "speMenuBtn_editSignon":
+    case "cpeMenuBtn_editSignon":
       mb.command = "edit_signon";
       mb.setAttribute("icon", "properties");
       this.editSignon();
       break;
 
-    case "speMenuBtn_cloneSignon":
+    case "cpeMenuBtn_cloneSignon":
       mb.command = "clone_signon";
       mb.removeAttribute("icon");
       this.cloneSignon();
       break;
 
-    case "speMenuBtn_newSignon":
+    case "cpeMenuBtn_newSignon":
       mb.command = "new_signon";
       mb.setAttribute("icon", "add");
       this.newSignon();
@@ -132,16 +132,16 @@ var spEditor = {
                                                       [e.message]));
   },
 
-  SPE_WINDOW_NAME: "danieldawson:savedpasswordeditor",
+  CPE_WINDOW_NAME: "danieldawson:classicpasswordeditor",
 
-  openSPEDialog: function (signon, mode, showingPasswords, ret) {
+  openCPEDialog: function (signon, mode, showingPasswords, ret) {
     var ww = Components.classes["@mozilla.org/embedcomp/window-watcher;1"].
       getService(Components.interfaces.nsIWindowWatcher);
-    var oldWin = ww.getWindowByName(this.SPE_WINDOW_NAME, null);
+    var oldWin = ww.getWindowByName(this.CPE_WINDOW_NAME, null);
     if (!oldWin)
       return window.openDialog(
-        "chrome://savedpasswordeditor/content/pwdedit.xul",
-        this.SPE_WINDOW_NAME, "centerscreen,dependent,dialog,chrome",
+        "chrome://classicpasswordeditor/content/pwdedit.xul",
+        this.CPE_WINDOW_NAME, "centerscreen,dependent,dialog,chrome",
         signon, mode, showingPasswords, ret);
     else {
       oldWin.focus();
@@ -193,7 +193,7 @@ var spEditor = {
       
     var ret = { newSignon: null, callback: this.mcbWrapper(__finish) };
     var dlg =
-      this.openSPEDialog(selSignons, 1, gPasswords.showPasswords, ret);
+      this.openCPEDialog(selSignons, 1, gPasswords.showPasswords, ret);
   },
 
   cloneSignon: function () {
@@ -211,7 +211,7 @@ var spEditor = {
     }
 
     var ret = { newSignon: null, callback: this.mcbWrapper(__finish) };
-    this.openSPEDialog([signon], 2, gPasswords.showPasswords, ret);
+    this.openCPEDialog([signon], 2, gPasswords.showPasswords, ret);
   },
 
   newSignon: function () {
@@ -225,7 +225,7 @@ var spEditor = {
     }
 
     var ret = { newSignon: null, callback: this.mcbWrapper(__finish) };
-    this.openSPEDialog([], 0, gPasswords.showPasswords, ret);
+    this.openCPEDialog([], 0, gPasswords.showPasswords, ret);
   },
 
   visitSite: function () {
@@ -258,6 +258,6 @@ var spEditor = {
   },
 }
 
-XPCOMUtils.defineLazyServiceGetter(spEditor, "loginSvc",
+XPCOMUtils.defineLazyServiceGetter(cpEditor, "loginSvc",
                                    "@mozilla.org/login-manager;1",
                                    "nsILoginManager");

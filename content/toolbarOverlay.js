@@ -1,6 +1,6 @@
 /*
-    Saved Password Editor, extension for Gecko applications
-    Copyright (C) 2016  Daniel Dawson <danielcdawson@gmail.com>
+    Classic Password Editor, extension for Gecko applications
+    Copyright (C) 2017  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,14 +19,14 @@
 "use strict";
 
 Components.utils.import(
-  "resource://savedpasswordeditor/SavedPasswordEditor.jsm");
+  "resource://classicpasswordeditor/ClassicPasswordEditor.jsm");
 
 window.addEventListener(
   "load",
   function _loadHandler () {
     window.removeEventListener("load", _loadHandler, false);
 
-    const btnId = "savedpasswordeditor-button";
+    const btnId = "classicpasswordeditor-button";
     const btnPos = {
       "navigator:browser": [["nav-bar", null],],
       "mail:3pane": [["mail-bar3", "button-appmenu"],
@@ -38,7 +38,7 @@ window.addEventListener(
 
     if (!(wtype in btnPos)) return;
 
-    const prefName = "extensions.savedpasswordeditor.addedButtonTo";
+    const prefName = "extensions.classicpasswordeditor.addedButtonTo";
     var prefs = Components.classes["@mozilla.org/preferences-service;1"].
                getService(Components.interfaces.nsIPrefService).getBranch("");
     if (prefs.prefHasUserValue(prefName))
@@ -52,7 +52,7 @@ window.addEventListener(
 
         var btn = document.getElementById(btnId);
         if (!btn || btn.parentNode.place == "palette")
-          CustomizableUI.addWidgetToArea("savedpasswordeditor-button",
+          CustomizableUI.addWidgetToArea("classicpasswordeditor-button",
                                          "nav-bar");
       } else {
         /* Old-style toolbar */

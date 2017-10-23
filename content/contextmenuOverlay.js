@@ -1,6 +1,6 @@
 /*
-    Saved Password Editor, extension for Gecko applications
-    Copyright (C) 2016  Daniel Dawson <danielcdawson@gmail.com>
+    Classic Password Editor, extension for Gecko applications
+    Copyright (C) 2017  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,16 +18,16 @@
 
 "use strict";
 
-const Cu = Components.utils;
-Cu.import("resource://savedpasswordeditor/SavedPasswordEditor.jsm");
+var Cu = Components.utils;
+Cu.import("resource://classicpasswordeditor/ClassicPasswordEditor.jsm");
 
 window.messageManager.loadFrameScript(
-  "chrome://savedpasswordeditor/content/frame-script.js", true);
+  "chrome://classicpasswordeditor/content/frame-script.js", true);
 
 addEventListener(
   "load",
   function _loadHandler () {
-    const prefix = "savedpasswordeditor-";
+    const prefix = "classicpasswordeditor-";
 
     function showItem (aId) {
       document.getElementById(prefix + aId).hidden = false;
@@ -39,7 +39,7 @@ addEventListener(
 
     var contextshowingHandler = {
       receiveMessage ({ data }) {
-        SavedPasswordEditor.updateLoginInfo(data);
+        ClassicPasswordEditor.updateLoginInfo(data);
         let idList = ["ctxmenuseparator",
                       "savelogininfo", "editlogininfo", "deletelogininfo"];
         idList.forEach(data ? showItem : hideItem);
@@ -47,7 +47,7 @@ addEventListener(
     };
 
     window.messageManager.addMessageListener(
-      "SavedPasswordEditor:contextshowing", contextshowingHandler);
+      "ClassicPasswordEditor:contextshowing", contextshowingHandler);
     removeEventListener("load", _loadHandler, false);
   },
   false);
