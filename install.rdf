@@ -6,7 +6,7 @@
     <type>2</type>
     <multiprocessCompatible>true</multiprocessCompatible>
     <name>Classic Password Editor</name>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <description>Adds the ability to create and edit entries in the password manager.</description>
     <creator>Daniel Dawson &lt;danielcdawson@gmail.com&gt;</creator>
     <iconURL>chrome://classicpasswordeditor/skin/logo.svg</iconURL>
@@ -16,7 +16,7 @@
     <targetApplication>
       <RDF:Description>
         <id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</id> <!-- Pale Moon -->
-        <minVersion>27.0</minVersion>
+        <minVersion>27.0.0a1</minVersion>
         <maxVersion>27.*</maxVersion>
       </RDF:Description>
     </targetApplication>

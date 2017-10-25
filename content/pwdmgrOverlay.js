@@ -18,6 +18,8 @@
 
 "use strict";
 
+Components.utils.import("resource://gre/modules/Services.jsm");
+
 document.addEventListener(
   "DOMContentLoaded",
   function dclHandler (ev) {

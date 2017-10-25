@@ -21,6 +21,7 @@
 const Cc = Components.classes,
       Ci = Components.interfaces,
       Cu = Components.utils;
+Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 var EXPORTED_SYMBOLS = ["ClassicPasswordEditor"];
@@ -101,6 +102,7 @@ var ClassicPasswordEditor = {
       }
     }
 
+    lsm("Opening dialog");
     var ret = { newSignon: null, callback: _finish, parentWindow: null };
     aWindow.openDialog(
       "chrome://classicpasswordeditor/content/pwdedit.xul", "",
