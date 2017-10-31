@@ -102,7 +102,6 @@ var ClassicPasswordEditor = {
       }
     }
 
-    lsm("Opening dialog");
     var ret = { newSignon: null, callback: _finish, parentWindow: null };
     aWindow.openDialog(
       "chrome://classicpasswordeditor/content/pwdedit.xul", "",
