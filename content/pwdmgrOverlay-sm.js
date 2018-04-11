@@ -41,12 +41,13 @@ window.addEventListener(
         dropMarkerStl = dropMarker.style;
     dropMarkerStl.marginTop = innerBtnCS.marginTop;
     dropMarkerStl.marginBottom = innerBtnCS.marginBottom;
+    window.removeEventListener("load", _loadHandler, false);
   },
   false);
 
 document.getElementById("passwordsTree").addEventListener(
   "select",
-  function (ev) {
+  () => {
     var selections = gDataman.getTreeSelections(gPasswords.tree);
     if (selections.length > 0) {
       document.getElementById("edit_signon").removeAttribute("disabled");
@@ -116,8 +117,7 @@ var cpEditor = {
   },
 
   mcbWrapper: function (method) {
-    var myThis = this;
-    return function () { return method.apply(myThis, arguments); };
+    return () => method.apply(this, arguments);
   },
 
   showErrorAlert: function (e) {
@@ -149,7 +149,7 @@ var cpEditor = {
     }
   },
 
-  _makeLoginInfo: function (props) {
+  _makeLoginInfo: props => {
     var li =
       Components.classes["@mozilla.org/login-manager/loginInfo;1"].
       createInstance(Components.interfaces.nsILoginInfo);
@@ -176,7 +176,8 @@ var cpEditor = {
     var selSignons =
       selections.map(el => gPasswords.displayedSignons[el]);
 
-    function __finish (newSignon) {
+    this.openCPEDialog(selSignons, 1, gPasswords.showPasswords,
+                       { newSignon: null, callback: newSignon => {
       try {
         for (let i = 0; i < selSignons.length; i++)
           this.loginSvc.modifyLogin(
@@ -189,11 +190,7 @@ var cpEditor = {
       } catch (e) {
         window.setTimeout(this.mcbWrapper(this.showErrorAlert), 0, e)
       }
-    }
-      
-    var ret = { newSignon: null, callback: this.mcbWrapper(__finish) };
-    var dlg =
-      this.openCPEDialog(selSignons, 1, gPasswords.showPasswords, ret);
+    }});
   },
 
   cloneSignon: function () {
@@ -201,31 +198,27 @@ var cpEditor = {
     if (selections.length != 1) return;
     var signon = gPasswords.displayedSignons[selections[0]];
 
-    function __finish (newSignon) {
+    this.openCPEDialog([signon], 2, gPasswords.showPasswords,
+                       { newSignon: null, callback: newSignon => {
       try {
         var newLI = this._makeLoginInfo(newSignon);
         this.loginSvc.addLogin(newLI);
       } catch (e) {
         window.setTimeout(this.mcbWrapper(this.showErrorAlert), 0, e);
       }
-    }
-
-    var ret = { newSignon: null, callback: this.mcbWrapper(__finish) };
-    this.openCPEDialog([signon], 2, gPasswords.showPasswords, ret);
+    }});
   },
 
   newSignon: function () {
-    function __finish (newSignon) {
+    this.openCPEDialog([], 0, gPasswords.showPasswords,
+                       { newSignon: null, callback: newSignon => {
       try {
         var newLI = this._makeLoginInfo(newSignon);
         this.loginSvc.addLogin(newLI);
       } catch (e) {
         window.setTimeout(this.mcbWrapper(this.showErrorAlert), 0, e);
       }
-    }
-
-    var ret = { newSignon: null, callback: this.mcbWrapper(__finish) };
-    this.openCPEDialog([], 0, gPasswords.showPasswords, ret);
+    }});
   },
 
   visitSite: function () {
@@ -256,7 +249,7 @@ var cpEditor = {
                 selSignons.length == 1 ? "badurl" : "badmulturl"));
     }
   },
-}
+};
 
 XPCOMUtils.defineLazyServiceGetter(cpEditor, "loginSvc",
                                    "@mozilla.org/login-manager;1",

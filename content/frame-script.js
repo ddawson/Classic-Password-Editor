@@ -24,7 +24,7 @@ Cu.import("resource://classicpasswordeditor/ClassicPasswordEditor-frame.jsm");
 
 addEventListener(
   "contextmenu",
-  function (aEvent) {
+  aEvent => {
     var target = aEvent.target;
     if (Ci.nsIDOMXULElement
         && target instanceof Ci.nsIDOMXULElement)  // SeaMonkey, why?

@@ -43,7 +43,7 @@ window.addEventListener(
       chromeWin.goPreferences("passwords_pane");
     }
 
-    var el = name => document.getElementById(name);
+    const $ = name => document.getElementById(name);
 
     appId = Services.appinfo.ID;
     var appName = "";
@@ -55,10 +55,10 @@ window.addEventListener(
       appName = "/seamonkey";
       break;
     }
-    el("addonlink").setAttribute(
+    $("addonlink").setAttribute(
       "href",
       `https://addons.mozilla.org${appName}/addon/classic-password-editor/`);
-    el("appname").textContent = Services.appinfo.name;
+    $("appname").textContent = Services.appinfo.name;
     window.removeEventListener("load", loadHandler, false);
   },
   false);

@@ -69,7 +69,7 @@ function showPasswords () {
 
 window.addEventListener(
   "load",
-  function (ev) {
+  function _loadHandler (ev) {
     if (cpEditor.prefs.getBoolPref("always_show_passwords"))
       showPasswords();
 
@@ -113,12 +113,13 @@ window.addEventListener(
         dropMarkerStl = dropMarker.style;
     dropMarkerStl.marginTop = innerBtnCS.marginTop;
     dropMarkerStl.marginBottom = innerBtnCS.marginBottom;
+    window.removeEventListener("load", _loadHandler, false);
   },
   false);
 
 document.getElementById("signonsTree").addEventListener(
   "select",
-  function (ev) {
+  () => {
     if (!cpEditor.selectionsEnabled) return;
     var selections = GetTreeSelections(cpEditor.signonsTree);
     if (selections.length > 0
@@ -200,7 +201,7 @@ var cpEditor = {
     ev.stopPropagation();
   },
 
-  _mergeSignonProps: function (oldSignon, newProps) {
+  _mergeSignonProps: (oldSignon, newProps) => {
     var merged = {};
     for (let prop in newProps)
       if (newProps[prop] === undefined)
@@ -217,7 +218,7 @@ var cpEditor = {
     return newSignon;
   },
 
-  _getFilterSet: function () {
+  _getFilterSet: () => {
     if (window.signons) {
       let treeView = signonsTreeView;
       return treeView._filterSet.length ? treeView._filterSet : signons;
@@ -337,8 +338,11 @@ var cpEditor = {
       for (let signon of selSignons) {
         try {
           curWin.openURL(signon.hostname);
-        } catch (e if e.name == "NS_ERROR_MALFORMED_URI") {
-          error = true;
+        } catch (e) {
+          if (e.name == "NS_ERROR_MALFORMED_URI")
+            error = true;
+          else
+            throw e;
         }
       }
 

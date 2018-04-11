@@ -6,34 +6,47 @@
     <type>2</type>
     <multiprocessCompatible>true</multiprocessCompatible>
     <name>Classic Password Editor</name>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <description>Adds the ability to create and edit entries in the password manager.</description>
     <creator>Daniel Dawson &lt;danielcdawson@gmail.com&gt;</creator>
     <iconURL>chrome://classicpasswordeditor/skin/logo.svg</iconURL>
     <optionsURL>chrome://classicpasswordeditor/content/prefwindow.xul</optionsURL>
+    <optionsType>1</optionsType>
     <homepageURL>https://addons.mozilla.org/addon/classic-password-editor/</homepageURL>
 
     <targetApplication>
       <RDF:Description>
         <id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</id> <!-- Pale Moon -->
         <minVersion>27.0.0a1</minVersion>
-        <maxVersion>27.*</maxVersion>
+        <maxVersion>28.*</maxVersion>
       </RDF:Description>
     </targetApplication>
+
+    <!-- This cannot be submitted on AMO, due to the app ID being the same as
+         Firefox's. -->
+    <!--
+    <targetApplication>
+      <RDF:Description>
+        <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id> <!- - Waterfox - ->
+        <minVersion>52.0.0a1</minVersion>
+        <maxVersion>56.*</maxVersion>
+      </RDF:Description>
+    </targetApplication>
+    -->
 
     <targetApplication>
       <RDF:Description>
         <id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</id> <!-- SeaMonkey -->
         <minVersion>2.39</minVersion>
-        <maxVersion>2.49</maxVersion>
+        <maxVersion>2.49.*</maxVersion>
       </RDF:Description>
     </targetApplication>
 
     <targetApplication>
       <RDF:Description>
         <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id> <!-- Thunderbird -->
-        <minVersion>45.0</minVersion>
-        <maxVersion>52.0</maxVersion>
+        <minVersion>52.0a1</minVersion>
+        <maxVersion>60.*</maxVersion>
       </RDF:Description>
     </targetApplication>
 
