@@ -6,13 +6,13 @@
     <type>2</type>
     <multiprocessCompatible>true</multiprocessCompatible>
     <name>Classic Password Editor</name>
-    <version>1.0.3</version>
+    <version>1.1</version>
     <description>Adds the ability to create and edit entries in the password manager.</description>
     <creator>Daniel Dawson &lt;danielcdawson@gmail.com&gt;</creator>
     <iconURL>chrome://classicpasswordeditor/skin/logo.svg</iconURL>
-    <optionsURL>chrome://classicpasswordeditor/content/prefwindow.xul</optionsURL>
-    <optionsType>1</optionsType>
-    <homepageURL>https://addons.mozilla.org/addon/classic-password-editor/</homepageURL>
+    <optionsURL>chrome://classicpasswordeditor/content/options.xhtml</optionsURL>
+    <optionsType>3</optionsType>
+    <homepageURL>https://addons.thunderbird.net/addon/classic-password-editor/</homepageURL>
 
     <targetApplication>
       <RDF:Description>
@@ -22,17 +22,13 @@
       </RDF:Description>
     </targetApplication>
 
-    <!-- This cannot be submitted on AMO, due to the app ID being the same as
-         Firefox's. -->
-    <!--
     <targetApplication>
       <RDF:Description>
-        <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id> <!- - Waterfox - ->
+        <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id> <!-- Waterfox -->
         <minVersion>52.0.0a1</minVersion>
         <maxVersion>56.*</maxVersion>
       </RDF:Description>
     </targetApplication>
-    -->
 
     <targetApplication>
       <RDF:Description>

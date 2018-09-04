@@ -1,6 +1,6 @@
 /*
     Classic Password Editor, extension for Gecko applications
-    Copyright (C) 2017  Daniel Dawson <danielcdawson@gmail.com>
+    Copyright (C) 2018  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,8 +16,13 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-@namespace
-  url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+.indent {
+  margin-left: 1em;
+}
+
+label[disabled] {
+  color: GrayText;
+}
 
 #opensp_keypressrecv {
   -moz-appearance: none;
@@ -27,8 +32,10 @@
   min-width: 0px;
 }
 
-#opensp_keypressrecv * {
-  border-style: none;
-  margin: 0px;
-  width: 0px;
+#msgbar {
+  border-top: 1px solid black;
+  width: 100%;
+  height: 5pc;
+  background-color: white;
+  color: black;
 }

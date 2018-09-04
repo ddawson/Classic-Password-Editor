@@ -1,6 +1,6 @@
 /*
     Classic Password Editor, extension for Gecko applications
-    Copyright (C) 2017  Daniel Dawson <danielcdawson@gmail.com>
+    Copyright (C) 2018  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -85,10 +85,15 @@
 
       function menuitemDynamic (evt) {
         var mi = document.getElementById("classicpasswordeditor-toolsmenuitem");
-        var renameTo =
-          prefBranch.getComplexValue(
+        var renameTo;
+        try {
+          renameTo = prefBranch.getComplexValue(
             "rename_menuitem_to",
             Components.interfaces.nsISupportsString).data;
+        } catch (e) {
+          renameTo = prefBranch.getStringPref("rename_menuitem_to");
+        }
+
         if (renameTo) {
           mi.setAttribute("label", renameTo);
           mi.removeAttribute("tooltiptext");
@@ -113,10 +118,15 @@
 
       function appmenuitemDynamic (evt) {
         var mi = document.getElementById("classicpasswordeditor-appmenuitem");
-        var renameTo =
-          prefBranch.getComplexValue(
+        var renameTo;
+        try {
+          renameTo = prefBranch.getComplexValue(
             "rename_menuitem_to",
             Components.interfaces.nsISupportsString).data;
+        } catch (e) {
+          renameTo = prefBranch.getStringPref("rename_menuitem_to");
+        }
+
         if (renameTo) {
           mi.setAttribute("label", renameTo);
           mi.removeAttribute("tooltiptext");
