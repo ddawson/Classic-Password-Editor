@@ -56,6 +56,18 @@ addEventListener(
   "input",
   aEvt => {
     let t = aEvt.target;
+    if (t.tagName == "input" && t.type == "text") {
+      let p = t.getAttribute("pref");
+      if (!p) return;
+      prefs.setCharPref(p, t.value);
+    }
+  },
+  false);
+
+addEventListener(
+  "click",
+  aEvt => {
+    let t = aEvt.target;
     if (t.tagName == "input") {
       let p = t.getAttribute("pref");
       if (!p) return;
@@ -63,10 +75,6 @@ addEventListener(
       switch (t.type) {
       case "checkbox":
         prefs.setBoolPref(p, t.checked);
-        break;
-
-      case "text":
-        prefs.setCharPref(p, t.value);
         break;
 
       case "radio":

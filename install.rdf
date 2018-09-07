@@ -6,7 +6,7 @@
     <type>2</type>
     <multiprocessCompatible>true</multiprocessCompatible>
     <name>Classic Password Editor</name>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
     <description>Adds the ability to create and edit entries in the password manager.</description>
     <creator>Daniel Dawson &lt;danielcdawson@gmail.com&gt;</creator>
     <iconURL>chrome://classicpasswordeditor/skin/logo.svg</iconURL>
