@@ -6,7 +6,7 @@
     <type>2</type>
     <multiprocessCompatible>true</multiprocessCompatible>
     <name>Classic Password Editor</name>
-    <version>1.1</version>
+    <version>1.1.1</version>
     <description>Adds the ability to create and edit entries in the password manager.</description>
     <creator>Daniel Dawson &lt;danielcdawson@gmail.com&gt;</creator>
     <iconURL>chrome://classicpasswordeditor/skin/logo.svg</iconURL>
@@ -25,18 +25,20 @@
     <targetApplication>
       <RDF:Description>
         <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id> <!-- Waterfox -->
-        <minVersion>52.0.0a1</minVersion>
+        <minVersion>52.0</minVersion>
         <maxVersion>56.*</maxVersion>
       </RDF:Description>
     </targetApplication>
 
+<!--
     <targetApplication>
       <RDF:Description>
-        <id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</id> <!-- SeaMonkey -->
+        <id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</id> <!- - SeaMonkey - ->
         <minVersion>2.39</minVersion>
         <maxVersion>2.49.*</maxVersion>
       </RDF:Description>
     </targetApplication>
+-->
 
     <targetApplication>
       <RDF:Description>
